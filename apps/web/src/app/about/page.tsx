@@ -299,24 +299,20 @@ const AboutPage = () => {
                 </h3>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">API Gateway</span>
-                    <span className="text-green-400 font-semibold">Fastify</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
                     <span className="text-gray-300">Runtime</span>
                     <span className="text-green-400 font-semibold">Node.js 20+</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Python Services</span>
-                    <span className="text-yellow-400 font-semibold">FastAPI</span>
                   </div>
                   <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
                     <span className="text-gray-300">ORM</span>
                     <span className="text-blue-400 font-semibold">Prisma</span>
                   </div>
                   <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Message Queue</span>
-                    <span className="text-red-400 font-semibold">BullMQ</span>
+                    <span className="text-gray-300">AI Model</span>
+                    <span className="text-purple-400 font-semibold">Gemini 2.5 flash</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
+                    <span className="text-gray-300">GitHub Integration</span>
+                    <span className="text-gray-300 font-semibold">GitHub API </span>
                   </div>
                 </div>
               </div>
@@ -351,14 +347,7 @@ const AboutPage = () => {
                     <span className="text-gray-300">Caching</span>
                     <span className="text-red-400 font-semibold">Redis 7+</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Object Storage</span>
-                    <span className="text-orange-400 font-semibold">MinIO</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Event Bus</span>
-                    <span className="text-purple-400 font-semibold">NATS / Redis</span>
-                  </div>
+                  2
                 </div>
               </div>
 
@@ -387,16 +376,8 @@ const AboutPage = () => {
                     <span className="text-blue-400 font-semibold">Docker</span>
                   </div>
                   <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Orchestration</span>
-                    <span className="text-blue-400 font-semibold">Kubernetes</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
                     <span className="text-gray-300">CI/CD</span>
                     <span className="text-purple-400 font-semibold">GitHub Actions</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">IaC</span>
-                    <span className="text-purple-400 font-semibold">Terraform</span>
                   </div>
                 </div>
               </div>
