@@ -152,3 +152,73 @@ export const getUserRepositories = asyncHandler(
     res.status(response.statusCode).json(response.data);
   }
 );
+
+/**
+ * POST /api/ai/securebot/scan
+ * Scan repository using SecureBot backend
+ */
+export const secureBotScan = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { repoId, username } = req.body;
+
+    if (!repoId || !username) {
+      throw new Error('Repository ID and username are required');
+    }
+
+    logger.info('Scanning repository with SecureBot', { repoId, username });
+
+    // Call SecureBot backend
+    const secureBotUrl = process.env.SECUREBOT_URL || 'http://localhost:4000';
+    const response = await fetch(`${secureBotUrl}/api/scan`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ repoId, username }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Failed to scan repository with SecureBot');
+    }
+
+    const apiResponse = successResponse(data, 200);
+    res.status(apiResponse.statusCode).json(apiResponse.data);
+  }
+);
+
+/**
+ * POST /api/ai/securebot/fix
+ * Fix repository issues and create PR using SecureBot backend
+ */
+export const secureBotFix = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { repoId, username } = req.body;
+
+    if (!repoId || !username) {
+      throw new Error('Repository ID and username are required');
+    }
+
+    logger.info('Fixing repository with SecureBot', { repoId, username });
+
+    // Set long timeout
+    req.setTimeout(600000); // 10 minutes
+    res.setTimeout(600000);
+
+    // Call SecureBot backend
+    const secureBotUrl = process.env.SECUREBOT_URL || 'http://localhost:4000';
+    const response = await fetch(`${secureBotUrl}/api/fix`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ repoId, username }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Failed to fix repository with SecureBot');
+    }
+
+    const apiResponse = successResponse(data, 200);
+    res.status(apiResponse.statusCode).json(apiResponse.data);
+  }
+);

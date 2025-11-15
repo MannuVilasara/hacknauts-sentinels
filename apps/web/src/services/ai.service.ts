@@ -122,3 +122,104 @@ export async function generateSecurityPR(
   });
   return response.data.data;
 }
+
+/**
+ * Scan repository using SecureBot backend
+ */
+export async function secureBotScan(
+  repoId: number,
+  username: string
+): Promise<{
+  success: boolean;
+  message: string;
+  repository: {
+    id: number;
+    name: string;
+    full_name: string;
+    local_path: string;
+  };
+  scan_results: {
+    summary: {
+      total: number;
+      totalFiles: number;
+      scannedFiles: number;
+      issuesFound: number;
+      severity: {
+        high: number;
+        medium: number;
+        low: number;
+      };
+    };
+    issues: Array<{
+      id: string;
+      file: string;
+      line: number;
+      severity: string;
+      type: string;
+      description: string;
+    }>;
+  };
+}> {
+  const response = await axios.post(`${env.AI_SERVICE_URL}/securebot/scan`, {
+    repoId,
+    username,
+  });
+  return response.data.data;
+}
+
+/**
+ * Fix repository issues and create PR using SecureBot backend
+ */
+export async function secureBotFix(
+  repoId: number,
+  username: string
+): Promise<{
+  success: boolean;
+  message: string;
+  repository: {
+    id: number;
+    name: string;
+    full_name: string;
+  };
+  scan_results: {
+    summary: {
+      totalFiles: number;
+      scannedFiles: number;
+      issuesFound: number;
+    };
+    issues: any[];
+  };
+  fix_results: {
+    summary: {
+      total: number;
+      successful: number;
+      failed: number;
+      successRate: string;
+    };
+    appliedFixes: Array<{
+      issue: string;
+      file: string;
+      status: string;
+    }>;
+  };
+  pull_request?: {
+    id: number;
+    number: number;
+    title: string;
+    html_url: string;
+    branch: string;
+    state: string;
+  };
+  summary: {
+    issues_found: number;
+    fixes_applied: number;
+    success_rate: string;
+    pull_request_created: boolean;
+  };
+}> {
+  const response = await axios.post(`${env.AI_SERVICE_URL}/securebot/fix`, {
+    repoId,
+    username,
+  });
+  return response.data.data;
+}

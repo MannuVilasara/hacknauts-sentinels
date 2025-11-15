@@ -44,6 +44,105 @@ const AuthorizeGitHubTab = () => {
   const [appInstalled, setAppInstalled] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const hasFetchedRef = useRef(false);
+  const [scanningRepos, setScanningRepos] = useState<Set<number>>(new Set());
+  const [fixingRepos, setFixingRepos] = useState<Set<number>>(new Set());
+
+  // Handler for SecureBot scan
+  const handleSecureBotScan = async (repoId: number, repoName: string) => {
+    if (!githubUsername) {
+      toast.error('GitHub username not found');
+      return;
+    }
+
+    setScanningRepos((prev) => new Set(prev).add(repoId));
+    const toastId = toast.loading(`Scanning ${repoName}...`);
+
+    try {
+      const result = await aiService.secureBotScan(repoId, githubUsername);
+
+      toast.success(`Found ${result.scan_results.summary.total} issues in ${repoName}`, {
+        id: toastId,
+      });
+
+      // Update repository with scan results
+      setRepositories((prev) =>
+        prev.map((repo) =>
+          repo.id === repoId
+            ? { ...repo, vulnerabilitiesCount: result.scan_results.summary.total }
+            : repo
+        )
+      );
+    } catch (error) {
+      console.error('Error scanning repository:', error);
+      toast.error(`Failed to scan ${repoName}`, { id: toastId });
+    } finally {
+      setScanningRepos((prev) => {
+        const newSet = new Set(prev);
+        newSet.delete(repoId);
+        return newSet;
+      });
+    }
+  };
+
+  // Handler for SecureBot fix
+  const handleSecureBotFix = async (repoId: number, repoName: string) => {
+    if (!githubUsername) {
+      toast.error('GitHub username not found');
+      return;
+    }
+
+    setFixingRepos((prev) => new Set(prev).add(repoId));
+    const toastId = toast.loading(`Fixing security issues in ${repoName}...`);
+
+    try {
+      const result = await aiService.secureBotFix(repoId, githubUsername);
+
+      if (result.pull_request) {
+        toast.success(
+          <div>
+            <p>Fixed {result.summary.fixes_applied} issues!</p>
+            <a
+              href={result.pull_request.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 underline"
+            >
+              View PR #{result.pull_request.number}
+            </a>
+          </div>,
+          { id: toastId, duration: 5000 }
+        );
+
+        // Update repository with PR info
+        setRepositories((prev) =>
+          prev.map((repo) =>
+            repo.id === repoId
+              ? {
+                  ...repo,
+                  openPR: {
+                    number: result.pull_request!.number,
+                    title: result.pull_request!.title,
+                    url: result.pull_request!.html_url,
+                    created_at: new Date().toISOString(),
+                  },
+                }
+              : repo
+          )
+        );
+      } else {
+        toast(`No fixes applied for ${repoName}`, { id: toastId });
+      }
+    } catch (error) {
+      console.error('Error fixing repository:', error);
+      toast.error(`Failed to fix ${repoName}`, { id: toastId });
+    } finally {
+      setFixingRepos((prev) => {
+        const newSet = new Set(prev);
+        newSet.delete(repoId);
+        return newSet;
+      });
+    }
+  };
 
   const fetchRepositories = useCallback(
     async (username?: string, instId?: string) => {
@@ -302,7 +401,7 @@ const AuthorizeGitHubTab = () => {
                           href={`https://github.com/apps/${env.GITHUB_APP_NAME}/installations/new`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-2/3 flex  inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200"
+                          className="w-2/3 inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200"
                         >
                           <svg
                             className="w-4 h-4 flex-shrink-0"
@@ -489,6 +588,75 @@ const AuthorizeGitHubTab = () => {
                                   Last scan: {new Date(repo.lastScan).toLocaleDateString()}
                                 </span>
                               )}
+                            </div>
+
+                            {/* Action buttons */}
+                            <div className="flex gap-2 mt-3">
+                              <button
+                                onClick={() => handleSecureBotScan(repo.id, repo.name)}
+                                disabled={scanningRepos.has(repo.id) || fixingRepos.has(repo.id)}
+                                className="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white px-3 py-2 rounded-lg text-xs font-medium transition-colors"
+                              >
+                                {scanningRepos.has(repo.id) ? (
+                                  <>
+                                    <svg
+                                      className="animate-spin h-4 w-4"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <circle
+                                        className="opacity-25"
+                                        cx="12"
+                                        cy="12"
+                                        r="10"
+                                        stroke="currentColor"
+                                        strokeWidth="4"
+                                      ></circle>
+                                      <path
+                                        className="opacity-75"
+                                        fill="currentColor"
+                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                      ></path>
+                                    </svg>
+                                    Scanning...
+                                  </>
+                                ) : (
+                                  <>🔍 Scan</>
+                                )}
+                              </button>
+
+                              <button
+                                onClick={() => handleSecureBotFix(repo.id, repo.name)}
+                                disabled={scanningRepos.has(repo.id) || fixingRepos.has(repo.id)}
+                                className="flex-1 inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white px-3 py-2 rounded-lg text-xs font-medium transition-colors"
+                              >
+                                {fixingRepos.has(repo.id) ? (
+                                  <>
+                                    <svg
+                                      className="animate-spin h-4 w-4"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <circle
+                                        className="opacity-25"
+                                        cx="12"
+                                        cy="12"
+                                        r="10"
+                                        stroke="currentColor"
+                                        strokeWidth="4"
+                                      ></circle>
+                                      <path
+                                        className="opacity-75"
+                                        fill="currentColor"
+                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                      ></path>
+                                    </svg>
+                                    Fixing...
+                                  </>
+                                ) : (
+                                  <>🔧 Auto-Fix</>
+                                )}
+                              </button>
                             </div>
                           </div>
                           <div className="flex items-center ml-3 gap-2">

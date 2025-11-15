@@ -47,4 +47,16 @@ router.get('/repositories/:owner/:repo/status', aiController.getRepositoryStatus
  */
 router.post('/user/:username/repositories', aiController.getUserRepositories);
 
+/**
+ * POST /api/ai/securebot/scan
+ * Scan repository using SecureBot backend
+ */
+router.post('/securebot/scan', aiController.secureBotScan);
+
+/**
+ * POST /api/ai/securebot/fix
+ * Fix repository issues and create PR using SecureBot backend
+ */
+router.post('/securebot/fix', aiController.secureBotFix);
+
 export default router;
