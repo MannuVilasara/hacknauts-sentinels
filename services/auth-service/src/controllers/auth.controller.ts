@@ -3,9 +3,9 @@
  */
 
 import type { Request, Response, NextFunction } from 'express';
-import { asyncHandler, successResponse, errorResponse, AppError } from '@cybersec/utils';
+import { asyncHandler, successResponse, ConflictError, AuthenticationError, InvalidTokenError } from '@cybersec/utils';
 import { createLogger } from '@cybersec/utils';
-import { LogLevel } from '@cybersec/types';
+import { LogLevel, ErrorCode } from '@cybersec/types';
 import prisma from '../lib/prisma.js';
 import {
     hashPassword,
@@ -43,7 +43,7 @@ export const register = asyncHandler(async (req: Request, res: Response, _next: 
 
     if (existingUser) {
         logger.warn('Registration failed - email already exists', { email });
-        throw new AppError('Email already registered', 409);
+        throw new ConflictError('Email already registered');
     }
 
     if (username) {
@@ -53,7 +53,7 @@ export const register = asyncHandler(async (req: Request, res: Response, _next: 
 
         if (existingUsername) {
             logger.warn('Registration failed - username already exists', { username });
-            throw new AppError('Username already taken', 409);
+            throw new ConflictError('Username already taken');
         }
     }
 
@@ -116,7 +116,7 @@ export const login = asyncHandler(async (req: Request, res: Response, _next: Nex
 
     if (!user || !user.passwordHash) {
         logger.warn('Login failed - invalid credentials', { email });
-        throw new AppError('Invalid credentials', 401);
+        throw new AuthenticationError('Invalid credentials');
     }
 
     // Verify password
@@ -124,7 +124,7 @@ export const login = asyncHandler(async (req: Request, res: Response, _next: Nex
 
     if (!isValidPassword) {
         logger.warn('Login failed - incorrect password', { email });
-        throw new AppError('Invalid credentials', 401);
+        throw new AuthenticationError('Invalid credentials');
     }
 
     // Generate tokens
@@ -212,14 +212,14 @@ export const refreshToken = asyncHandler(async (req: Request, res: Response, _ne
 
     if (!session) {
         logger.warn('Token refresh failed - invalid refresh token');
-        throw new AppError('Invalid refresh token', 401);
+        throw new InvalidTokenError('Invalid refresh token');
     }
 
     // Check if session expired
     if (session.expiresAt < new Date()) {
         logger.warn('Token refresh failed - session expired', { sessionId: session.id });
         await prisma.session.delete({ where: { id: session.id } });
-        throw new AppError('Session expired', 401);
+        throw new InvalidTokenError('Session expired');
     }
 
     // Generate new tokens
@@ -261,8 +261,8 @@ export const verifyEmail = asyncHandler(async (req: Request, res: Response, _nex
     });
 
     if (!user) {
-        logger.warn('Email verification failed - invalid token');
-        throw new AppError('Invalid verification token', 400);
+        logger.warn('Email verification attempt with invalid token');
+        throw new InvalidTokenError('Invalid verification token');
     }
 
     await prisma.user.update({
@@ -348,7 +348,7 @@ export const resetPassword = asyncHandler(async (req: Request, res: Response, _n
 
     if (!user) {
         logger.warn('Password reset failed - invalid or expired token');
-        throw new AppError('Invalid or expired reset token', 400);
+        throw new InvalidTokenError('Invalid or expired reset token');
     }
 
     const passwordHash = await hashPassword(password);
