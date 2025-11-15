@@ -6,6 +6,18 @@ on:
       - main
 
 jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: check prettier formatting
+        uses: creyD/prettier_action@v4.6
+        with:
+          prettier_options: "--check ."
+
   type-check:
     runs-on: ubuntu-latest
 
