@@ -50,9 +50,9 @@ export const listApiKeys = asyncHandler(async (req: AuthRequest, res: Response, 
     });
 
     // Mask the keys for security (show only last 8 characters)
-    const maskedKeys = apiKeys.map(key => ({
-        ...key,
-        key: `sk_...${key.key.slice(-8)}`,
+    const maskedKeys = apiKeys.map((apiKey: typeof apiKeys[number]) => ({
+        ...apiKey,
+        key: `sk_...${apiKey.key.slice(-8)}`,
     }));
 
     logger.info('API keys fetched successfully', { userId, count: apiKeys.length });
