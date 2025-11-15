@@ -111,7 +111,7 @@ export const register = asyncHandler(async (req: Request, res: Response, _next: 
     });
 
     const { data, statusCode } = successResponse({
-        message: 'Registration successful. Please verify your email.',
+        message: 'Registration successful.',
         user,
         token,
         refreshToken,

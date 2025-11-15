@@ -27,27 +27,27 @@ const AddServerTab = () => {
     server: null,
   });
 
-  useEffect(() => {
-    fetchUserServers();
-  }, []);
+  // useEffect(() => {
+  //   fetchUserServers();
+  // }, []);
 
-  const fetchUserServers = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        `${env.API_URL}/my/servers`,
-        { withCredentials: true }
-      );
+  // const fetchUserServers = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const response = await axios.get(
+  //       `${env.API_URL}/my/servers`,
+  //       { withCredentials: true }
+  //     );
 
-      const data = response.data;
-      setServers(data.servers || []);
-    } catch (error) {
-      console.error('Error fetching servers:', error);
-      toast.error('Error loading servers');
-    } finally {
-      setLoading(false);
-    }
-  };
+  //     const data = response.data;
+  //     setServers(data.servers || []);
+  //   } catch (error) {
+  //     console.error('Error fetching servers:', error);
+  //     toast.error('Error loading servers');
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   const handleAddServer = () => {
     router.push('/add-server');
@@ -70,7 +70,7 @@ const AddServerTab = () => {
 
       if (response.status === 200) {
         toast.success('Server deleted successfully!');
-        fetchUserServers();
+        // fetchUserServers();
       }
     } catch (error: any) {
       console.error('Error deleting server:', error);
@@ -101,7 +101,7 @@ const AddServerTab = () => {
   };
 
   const handleVerificationComplete = () => {
-    fetchUserServers();
+    // fetchUserServers();
     handleCloseVerificationPopup();
     toast.success('Server verification completed successfully!');
   };

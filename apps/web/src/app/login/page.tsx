@@ -34,7 +34,16 @@ const LoginPage = () => {
     try {
       const response = await authService.login({ email, password });
 
-      setAuth(response.user, response.token);
+      const transformedUser = {
+        ...response.user,
+        loginHistory: response.user.loginHistory?.map((entry: any) => ({
+          ...entry,
+          loggedInAt: entry.timestamp || entry.loggedInAt,
+          ip: entry.ipAddress || entry.ip,
+        })),
+      };
+
+      setAuth(transformedUser, response.token);
       setEmail("");
       setPassword("");
 

@@ -40,7 +40,16 @@ const SignupPage = () => {
     try {
       const res = await authService.register({ username, email, password });
 
-      setAuth(res.user, res.token);
+      const transformedUser = {
+        ...res.user,
+        loginHistory: res.user.loginHistory?.map(entry => ({
+          loggedInAt: entry.timestamp || (entry as any).loggedInAt,
+          ip: (entry as any).ip || (entry as any).ipAddress || '',
+          ...entry
+        }))
+      };
+
+      setAuth(transformedUser, res.token);
 
       setusername("");
       setemail("");
