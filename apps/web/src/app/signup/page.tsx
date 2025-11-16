@@ -66,7 +66,7 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
+    <div className="relative min-h-screen bg-background overflow-hidden">
       <div className="absolute inset-0">
         <Image
           src="/background-auth.webp"
@@ -75,7 +75,7 @@ const SignupPage = () => {
           className="object-cover opacity-30"
           priority
         />
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-card/60"></div>
       </div>
 
       <div className="absolute inset-0 overflow-hidden">
@@ -87,7 +87,7 @@ const SignupPage = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           <div className="text-center lg:text-left space-y-6">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-3xl shadow-2xl mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-foreground rounded-3xl shadow-2xl mb-6">
               <svg
                 className="w-10 h-10 text-black"
                 fill="none"
@@ -104,28 +104,28 @@ const SignupPage = () => {
             </div>
 
             <div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+              <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
                 Secure
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
                   Auth
                 </span>
               </h1>
-              <p className="text-xl text-gray-400 mb-6 max-w-md">
+              <p className="text-xl text-muted-foreground mb-6 max-w-md">
                 Advanced cybersecurity platform with enterprise-grade authentication
               </p>
 
               <div className="space-y-3 text-left max-w-md">
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-gray-300">Multi-factor authentication</span>
+                  <div className="w-2 h-2 bg-foreground rounded-full"></div>
+                  <span className="text-foreground/90">Multi-factor authentication</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-gray-300">Email verification system</span>
+                  <div className="w-2 h-2 bg-foreground rounded-full"></div>
+                  <span className="text-foreground/90">Email verification system</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-gray-300">Enterprise security standards</span>
+                  <div className="w-2 h-2 bg-foreground rounded-full"></div>
+                  <span className="text-foreground/90">Enterprise security standards</span>
                 </div>
               </div>
             </div>
@@ -133,10 +133,12 @@ const SignupPage = () => {
 
           <div className="flex justify-center lg:justify-end">
             <div className="w-full max-w-md">
-              <div className="backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-8 bg-[rgba(36,36,36,0.95)]">
-                <h2 className="text-2xl text-white font-bold mb-1 text-center">Create Account</h2>
+              <div className="backdrop-blur-xl rounded-3xl shadow-2xl border border-border p-8 bg-[rgba(36,36,36,0.95)]">
+                <h2 className="text-2xl text-foreground font-bold mb-1 text-center">
+                  Create Account
+                </h2>
 
-                <p className="text-gray-400 text-sm text-center mb-8">
+                <p className="text-muted-foreground text-sm text-center mb-8">
                   Enter your credentials to get started
                 </p>
 
@@ -147,7 +149,7 @@ const SignupPage = () => {
                       onChange={(e) => setusername(e.target.value)}
                       type="text"
                       placeholder="Username"
-                      className="w-full px-4 py-3 rounded-xl bg-black/40 text-white placeholder-gray-400 border border-gray-600/40 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-xl bg-card/40 text-foreground placeholder-muted-foreground border border-border/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
                     />
 
                     <input
@@ -155,7 +157,7 @@ const SignupPage = () => {
                       onChange={(e) => setemail(e.target.value)}
                       type="email"
                       placeholder="Email address"
-                      className="w-full px-4 py-3 rounded-xl bg-black/40 text-white placeholder-gray-400 border border-gray-600/40 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-xl bg-card/40 text-foreground placeholder-muted-foreground border border-border/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
                     />
 
                     <input
@@ -163,7 +165,7 @@ const SignupPage = () => {
                       onChange={(e) => setpassword(e.target.value)}
                       type="password"
                       placeholder="Password (min 6 characters)"
-                      className="w-full px-4 py-3 rounded-xl bg-black/40 text-white placeholder-gray-400 border border-gray-600/40 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-xl bg-card/40 text-foreground placeholder-muted-foreground border border-border/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
                     />
                   </div>
 
@@ -173,16 +175,16 @@ const SignupPage = () => {
                       id="acceptTermsSignup"
                       checked={acceptedTerms}
                       onChange={(e) => setAcceptedTerms(e.target.checked)}
-                      className="w-4 h-4 mt-1 rounded bg-black/40 border border-gray-600/40 text-white focus:ring-white/50"
+                      className="w-4 h-4 mt-1 rounded bg-card/40 border border-border/40 text-foreground focus:ring-primary/50"
                     />
                     <label
                       htmlFor="acceptTermsSignup"
-                      className="text-gray-300 text-sm cursor-pointer"
+                      className="text-foreground/90 text-sm cursor-pointer"
                     >
                       I agree to the{' '}
                       <Link
                         href="/terms-and-conditions"
-                        className="text-white hover:text-gray-300 underline"
+                        className="text-foreground hover:text-foreground/90 underline"
                       >
                         Terms and Conditions
                       </Link>
@@ -192,7 +194,7 @@ const SignupPage = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full mt-6 py-3 cursor-pointer rounded-xl bg-white text-black font-semibold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                    className="w-full mt-6 py-3 cursor-pointer rounded-xl bg-foreground text-background font-semibold hover:bg-muted/100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
                   >
                     {isLoading ? (
                       <div className="flex items-center justify-center gap-2">
@@ -220,12 +222,12 @@ const SignupPage = () => {
                   </button>
                 </form>
 
-                <div className="text-center mt-6 pt-6 border-t border-gray-700/30">
-                  <p className="text-gray-400 text-sm">
+                <div className="text-center mt-6 pt-6 border-t border-border/30">
+                  <p className="text-muted-foreground text-sm">
                     Already have an account?{' '}
                     <Link
                       href="/login"
-                      className="text-white hover:text-gray-300 font-medium transition-colors duration-300"
+                      className="text-foreground hover:text-foreground/90 font-medium transition-colors duration-300"
                     >
                       Login
                     </Link>

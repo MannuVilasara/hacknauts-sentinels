@@ -3,27 +3,24 @@ import Link from 'next/link';
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 pt-16 relative">
+    <div className="min-h-screen bg-background pt-16 relative">
       <div className="fixed inset-0 z-0">
         <img
           src="/background-auth.webp"
           alt="Background"
           className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="absolute inset-0 bg-card/70"></div>
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">
-              About{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
-                SecureAuth
-              </span>
+            <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              About <span className="text-transparent bg-clip-text bg-primary">SecureAuth</span>
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               A unified cybersecurity platform designed for developers, startups, and enterprises
               that consolidates multiple security tools into one comprehensive solution.
             </p>
@@ -31,11 +28,11 @@ const AboutPage = () => {
 
           {/* Core Principles */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
+            <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border">
               <div className="flex items-center mb-6">
-                <div className="bg-red-500/20 p-3 rounded-2xl mr-4">
+                <div className="bg-destructive/20 p-3 rounded-2xl mr-4">
                   <svg
-                    className="w-8 h-8 text-red-400"
+                    className="w-8 h-8 text-destructive"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -48,14 +45,14 @@ const AboutPage = () => {
                     />
                   </svg>
                 </div>
-                <h2 className="text-3xl font-bold text-white">The Problem</h2>
+                <h2 className="text-3xl font-bold text-foreground">The Problem</h2>
               </div>
-              <p className="text-gray-300 leading-relaxed mb-4">
+              <p className="text-foreground/90 leading-relaxed mb-4">
                 Developers juggle multiple security tools - separate solutions for code scanning,
                 secrets management, vulnerability tracking, and compliance monitoring. This
                 fragmentation leads to:
               </p>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-muted-foreground">
                 <li>• Increased costs and complexity</li>
                 <li>• Security gaps between tools</li>
                 <li>• Difficult centralized management</li>
@@ -63,11 +60,11 @@ const AboutPage = () => {
               </ul>
             </div>
 
-            <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
+            <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border">
               <div className="flex items-center mb-6">
-                <div className="bg-green-500/20 p-3 rounded-2xl mr-4">
+                <div className="bg-primary/20 p-3 rounded-2xl mr-4">
                   <svg
-                    className="w-8 h-8 text-green-400"
+                    className="w-8 h-8 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -80,23 +77,23 @@ const AboutPage = () => {
                     />
                   </svg>
                 </div>
-                <h2 className="text-3xl font-bold text-white">Our Solution</h2>
+                <h2 className="text-3xl font-bold text-foreground">Our Solution</h2>
               </div>
-              <p className="text-gray-300 leading-relaxed mb-4">
+              <p className="text-foreground/90 leading-relaxed mb-4">
                 SecureAuth provides a unified platform with integrated security features:
               </p>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  • <span className="text-green-400">All-in-one</span> security dashboard
+                  • <span className="text-primary">All-in-one</span> security dashboard
                 </li>
                 <li>
-                  • <span className="text-blue-400">AI-powered</span> vulnerability analysis
+                  • <span className="text-primary">AI-powered</span> vulnerability analysis
                 </li>
                 <li>
-                  • <span className="text-purple-400">Zero-trust</span> secrets vault
+                  • <span className="text-muted-foreground">Zero-trust</span> secrets vault
                 </li>
                 <li>
-                  • <span className="text-red-400">Real-time</span> threat monitoring
+                  • <span className="text-destructive">Real-time</span> threat monitoring
                 </li>
               </ul>
             </div>
@@ -104,16 +101,16 @@ const AboutPage = () => {
 
           {/* System Architecture */}
           <div className="mb-16">
-            <h2 className="text-4xl font-bold text-white text-center mb-12">
-              System <span className="text-purple-400">Architecture</span>
+            <h2 className="text-4xl font-bold text-foreground text-center mb-12">
+              System <span className="text-muted-foreground">Architecture</span>
             </h2>
 
-            <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-8 border border-white/10 mb-8">
+            <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border mb-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <svg
-                      className="w-8 h-8 text-blue-400"
+                      className="w-8 h-8 text-primary"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -126,14 +123,16 @@ const AboutPage = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Frontend Layer</h3>
-                  <p className="text-sm text-gray-400">Next.js dashboard with React components</p>
+                  <h3 className="text-xl font-bold text-foreground mb-2">Frontend Layer</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Next.js dashboard with React components
+                  </p>
                 </div>
 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-green-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <svg
-                      className="w-8 h-8 text-green-400"
+                      className="w-8 h-8 text-primary"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -146,14 +145,16 @@ const AboutPage = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">API Gateway</h3>
-                  <p className="text-sm text-gray-400">Fastify-based central routing layer</p>
+                  <h3 className="text-xl font-bold text-foreground mb-2">API Gateway</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Fastify-based central routing layer
+                  </p>
                 </div>
 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-muted/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <svg
-                      className="w-8 h-8 text-purple-400"
+                      className="w-8 h-8 text-muted-foreground"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -166,62 +167,66 @@ const AboutPage = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Microservices</h3>
-                  <p className="text-sm text-gray-400">Specialized security services</p>
+                  <h3 className="text-xl font-bold text-foreground mb-2">Microservices</h3>
+                  <p className="text-sm text-muted-foreground">Specialized security services</p>
                 </div>
               </div>
 
-              <div className="border-t border-white/10 pt-8">
-                <h4 className="text-lg font-bold text-white mb-6 text-center">
+              <div className="border-t border-border pt-8">
+                <h4 className="text-lg font-bold text-foreground mb-6 text-center">
                   Microservices Architecture
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <div className="bg-black/30 rounded-xl p-4 border border-white/5">
+                  <div className="bg-card/30 rounded-xl p-4 border border-white/5">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <span className="text-white font-semibold">Auth Service</span>
+                      <span className="text-foreground font-semibold">Auth Service</span>
                     </div>
-                    <p className="text-xs text-gray-400">User management & authentication</p>
+                    <p className="text-xs text-muted-foreground">
+                      User management & authentication
+                    </p>
                   </div>
 
-                  <div className="bg-black/30 rounded-xl p-4 border border-white/5">
+                  <div className="bg-card/30 rounded-xl p-4 border border-white/5">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                      <span className="text-white font-semibold">Scanner Service</span>
+                      <span className="text-foreground font-semibold">Scanner Service</span>
                     </div>
-                    <p className="text-xs text-gray-400">Repository security analysis</p>
+                    <p className="text-xs text-muted-foreground">Repository security analysis</p>
                   </div>
 
-                  <div className="bg-black/30 rounded-xl p-4 border border-white/5">
+                  <div className="bg-card/30 rounded-xl p-4 border border-white/5">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      <span className="text-white font-semibold">AI Service</span>
+                      <span className="text-foreground font-semibold">AI Service</span>
                     </div>
-                    <p className="text-xs text-gray-400">Vulnerability explanations & fixes</p>
+                    <p className="text-xs text-muted-foreground">
+                      Vulnerability explanations & fixes
+                    </p>
                   </div>
 
-                  <div className="bg-black/30 rounded-xl p-4 border border-white/5">
+                  <div className="bg-card/30 rounded-xl p-4 border border-white/5">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                      <span className="text-white font-semibold">Vault Service</span>
+                      <span className="text-foreground font-semibold">Vault Service</span>
                     </div>
-                    <p className="text-xs text-gray-400">Zero-trust secrets management</p>
+                    <p className="text-xs text-muted-foreground">Zero-trust secrets management</p>
                   </div>
 
-                  <div className="bg-black/30 rounded-xl p-4 border border-white/5">
+                  <div className="bg-card/30 rounded-xl p-4 border border-white/5">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                      <span className="text-white font-semibold">Log Service</span>
+                      <span className="text-foreground font-semibold">Log Service</span>
                     </div>
-                    <p className="text-xs text-gray-400">Real-time monitoring & alerts</p>
+                    <p className="text-xs text-muted-foreground">Real-time monitoring & alerts</p>
                   </div>
 
-                  <div className="bg-black/30 rounded-xl p-4 border border-white/5">
+                  <div className="bg-card/30 rounded-xl p-4 border border-white/5">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                      <span className="text-white font-semibold">Billing Service</span>
+                      <div className="w-2 h-2 bg-primary/400 rounded-full"></div>
+                      <span className="text-foreground font-semibold">Billing Service</span>
                     </div>
-                    <p className="text-xs text-gray-400">Subscription management</p>
+                    <p className="text-xs text-muted-foreground">Subscription management</p>
                   </div>
                 </div>
               </div>
@@ -230,16 +235,16 @@ const AboutPage = () => {
 
           {/* Tech Stack */}
           <div className="mb-16">
-            <h2 className="text-4xl font-bold text-white text-center mb-12">
-              Technology <span className="text-cyan-400">Stack</span>
+            <h2 className="text-4xl font-bold text-foreground text-center mb-12">
+              Technology <span className="text-primary">Stack</span>
             </h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-border">
+                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
                     <svg
-                      className="w-5 h-5 text-blue-400"
+                      className="w-5 h-5 text-primary"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -255,34 +260,34 @@ const AboutPage = () => {
                   Frontend
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Framework</span>
-                    <span className="text-cyan-400 font-semibold">Next.js 14+</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">Framework</span>
+                    <span className="text-primary font-semibold">Next.js 14+</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">UI Library</span>
-                    <span className="text-blue-400 font-semibold">React 18+</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">UI Library</span>
+                    <span className="text-primary font-semibold">React 18+</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Styling</span>
-                    <span className="text-pink-400 font-semibold">Tailwind CSS</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">Styling</span>
+                    <span className="text-muted-foreground font-semibold">Tailwind CSS</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">State Management</span>
-                    <span className="text-orange-400 font-semibold">Zustand</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">State Management</span>
+                    <span className="text-primary font-semibold">Zustand</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Type Safety</span>
-                    <span className="text-blue-400 font-semibold">TypeScript</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">Type Safety</span>
+                    <span className="text-primary font-semibold">TypeScript</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                  <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-border">
+                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                  <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
                     <svg
-                      className="w-5 h-5 text-green-400"
+                      className="w-5 h-5 text-primary"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -298,32 +303,32 @@ const AboutPage = () => {
                   Backend
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Runtime</span>
-                    <span className="text-green-400 font-semibold">Node.js 20+</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">Runtime</span>
+                    <span className="text-primary font-semibold">Node.js 20+</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">ORM</span>
-                    <span className="text-blue-400 font-semibold">Prisma</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">ORM</span>
+                    <span className="text-primary font-semibold">Prisma</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">AI Model</span>
-                    <span className="text-purple-400 font-semibold">Gemini 2.5 flash</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">AI Model</span>
+                    <span className="text-muted-foreground font-semibold">Gemini 2.5 flash</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">GitHub Integration</span>
-                    <span className="text-gray-300 font-semibold">GitHub API </span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">GitHub Integration</span>
+                    <span className="text-foreground/90 font-semibold">GitHub API </span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                  <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-border">
+                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                  <div className="w-8 h-8 bg-muted/20 rounded-lg flex items-center justify-center">
                     <svg
-                      className="w-5 h-5 text-purple-400"
+                      className="w-5 h-5 text-muted-foreground"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -339,23 +344,23 @@ const AboutPage = () => {
                   Data & Storage
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Primary Database</span>
-                    <span className="text-blue-400 font-semibold">PostgreSQL 16+</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">Primary Database</span>
+                    <span className="text-primary font-semibold">PostgreSQL 16+</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Caching</span>
-                    <span className="text-red-400 font-semibold">Redis 7+</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">Caching</span>
+                    <span className="text-destructive font-semibold">Redis 7+</span>
                   </div>
                   2
                 </div>
               </div>
 
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-border">
+                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                   <div className="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center">
                     <svg
-                      className="w-5 h-5 text-cyan-400"
+                      className="w-5 h-5 text-primary"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -371,13 +376,13 @@ const AboutPage = () => {
                   DevOps & Infrastructure
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Containerization</span>
-                    <span className="text-blue-400 font-semibold">Docker</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">Containerization</span>
+                    <span className="text-primary font-semibold">Docker</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">CI/CD</span>
-                    <span className="text-purple-400 font-semibold">GitHub Actions</span>
+                  <div className="flex items-center justify-between p-3 bg-muted/20 rounded-xl">
+                    <span className="text-foreground/90">CI/CD</span>
+                    <span className="text-muted-foreground font-semibold">GitHub Actions</span>
                   </div>
                 </div>
               </div>
@@ -385,11 +390,11 @@ const AboutPage = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center bg-black/40 backdrop-blur-xl rounded-3xl p-12 border border-white/10">
+          <div className="text-center bg-card/40 backdrop-blur-xl rounded-3xl p-12 border border-border">
             <div className="flex items-center justify-center mb-6">
               <div className="w-16 h-16 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center mr-4">
                 <svg
-                  className="w-8 h-8 text-orange-400"
+                  className="w-8 h-8 text-primary"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -404,11 +409,11 @@ const AboutPage = () => {
               </div>
             </div>
 
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-foreground mb-4">
               Ready to Secure Your Applications?
             </h2>
 
-            <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
               Join thousands of developers who trust SecureAuth to protect their code, secure their
               secrets, and maintain compliance with enterprise-grade security tools.
             </p>
@@ -416,13 +421,13 @@ const AboutPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/signup"
-                className="bg-gradient-to-r from-red-600 to-orange-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-red-700 hover:to-orange-700 transition-all duration-300"
+                className="bg-primary text-foreground px-8 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300"
               >
                 Start Free Trial
               </Link>
               <Link
                 href="/contact"
-                className="border border-orange-400/50 text-orange-400 px-8 py-3 rounded-xl font-semibold hover:bg-orange-400/10 transition-colors duration-300"
+                className="border border-primary/50 text-primary px-8 py-3 rounded-xl font-semibold hover:bg-primary/400/10 transition-colors duration-300"
               >
                 Contact Sales
               </Link>

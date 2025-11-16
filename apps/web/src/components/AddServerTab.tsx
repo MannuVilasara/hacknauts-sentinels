@@ -110,10 +110,10 @@ const AddServerTab = () => {
       <div className="space-y-8">
         <div>
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">Server Management</h2>
+            <h2 className="text-2xl font-bold text-foreground">Server Management</h2>
             <button
               onClick={handleAddServer}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
+              className="bg-primary hover:bg-primary/90 text-foreground px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -128,44 +128,44 @@ const AddServerTab = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-4 border border-white/10">
+            <div className="bg-card/40 backdrop-blur-xl rounded-2xl p-4 border border-border">
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">{servers.length}</div>
-                <div className="text-gray-400 text-sm">Total Servers</div>
+                <div className="text-2xl font-bold text-foreground">{servers.length}</div>
+                <div className="text-muted-foreground text-sm">Total Servers</div>
               </div>
             </div>
-            <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-4 border border-white/10">
+            <div className="bg-card/40 backdrop-blur-xl rounded-2xl p-4 border border-border">
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-400">
+                <div className="text-2xl font-bold text-primary">
                   {loading ? '...' : servers.filter((server) => server.isVerified).length}
                 </div>
-                <div className="text-gray-400 text-sm">Verified</div>
+                <div className="text-muted-foreground text-sm">Verified</div>
               </div>
             </div>
-            <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-4 border border-white/10">
+            <div className="bg-card/40 backdrop-blur-xl rounded-2xl p-4 border border-border">
               <div className="text-center">
-                <div className="text-2xl font-bold text-yellow-400">
+                <div className="text-2xl font-bold text-muted-foreground">
                   {loading ? '...' : servers.filter((server) => !server.isVerified).length}
                 </div>
-                <div className="text-gray-400 text-sm">Unverified</div>
+                <div className="text-muted-foreground text-sm">Unverified</div>
               </div>
             </div>
           </div>
         </div>
 
         <div>
-          <h3 className="text-xl font-bold text-white mb-4">Your Servers</h3>
+          <h3 className="text-xl font-bold text-foreground mb-4">Your Servers</h3>
 
           {loading ? (
-            <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-8 border border-white/10 text-center">
+            <div className="bg-card/40 backdrop-blur-xl rounded-2xl p-8 border border-border text-center">
               <div className="animate-spin w-8 h-8 border-2 border-blue-400 border-t-transparent rounded-full mx-auto mb-4"></div>
-              <p className="text-gray-400">Loading servers...</p>
+              <p className="text-muted-foreground">Loading servers...</p>
             </div>
           ) : servers.length === 0 ? (
-            <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-8 border border-white/10 text-center">
-              <div className="w-16 h-16 bg-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <div className="bg-card/40 backdrop-blur-xl rounded-2xl p-8 border border-border text-center">
+              <div className="w-16 h-16 bg-card rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-8 h-8 text-gray-400"
+                  className="w-8 h-8 text-muted-foreground"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -178,13 +178,13 @@ const AddServerTab = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">No Servers Added</h3>
-              <p className="text-gray-400 mb-4">
+              <h3 className="text-xl font-semibold text-foreground mb-2">No Servers Added</h3>
+              <p className="text-muted-foreground mb-4">
                 Get started by adding your first server to monitor
               </p>
               <button
                 onClick={handleAddServer}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200"
+                className="bg-primary hover:bg-primary/90 text-foreground px-6 py-2 rounded-lg font-medium transition-colors duration-200"
               >
                 Add Your First Server
               </button>
@@ -194,13 +194,13 @@ const AddServerTab = () => {
               {servers.map((server) => (
                 <div
                   key={server._id}
-                  className="bg-black/40 backdrop-blur-xl rounded-2xl p-6 border border-white/10"
+                  className="bg-card/40 backdrop-blur-xl rounded-2xl p-6 border border-border"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center">
-                      <div className="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center mr-4">
+                      <div className="w-12 h-12 bg-card rounded-2xl flex items-center justify-center mr-4">
                         <svg
-                          className="w-6 h-6 text-white"
+                          className="w-6 h-6 text-foreground"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -214,8 +214,8 @@ const AddServerTab = () => {
                         </svg>
                       </div>
                       <div>
-                        <h4 className="text-lg font-semibold text-white">{server.name}</h4>
-                        <p className="text-gray-400 text-sm">Server</p>
+                        <h4 className="text-lg font-semibold text-foreground">{server.name}</h4>
+                        <p className="text-muted-foreground text-sm">Server</p>
                       </div>
                     </div>
 
@@ -223,8 +223,8 @@ const AddServerTab = () => {
                       onClick={() => handleVerificationClick(server)}
                       className={`flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 hover:scale-105 ${
                         server.isVerified
-                          ? 'bg-green-500/20 text-green-400 border border-green-500/30 hover:bg-green-500/30'
-                          : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 hover:bg-yellow-500/30'
+                          ? 'bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30'
+                          : 'bg-muted/20 text-muted-foreground border border-muted-foreground/30 hover:bg-muted/30'
                       }`}
                       title={server.isVerified ? 'Server is verified' : 'Click to verify server'}
                     >
@@ -256,13 +256,13 @@ const AddServerTab = () => {
 
                   <div className="space-y-3 mb-4">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-400 text-sm">Server IP</span>
-                      <span className="text-white font-mono text-sm">••••••••••••••••</span>
+                      <span className="text-muted-foreground text-sm">Server IP</span>
+                      <span className="text-foreground font-mono text-sm">••••••••••••••••</span>
                     </div>
                     {server.createdAt && (
                       <div className="flex justify-between items-center">
-                        <span className="text-gray-400 text-sm">Added</span>
-                        <span className="text-white text-sm">
+                        <span className="text-muted-foreground text-sm">Added</span>
+                        <span className="text-foreground text-sm">
                           {new Date(server.createdAt).toLocaleDateString()}
                         </span>
                       </div>
@@ -272,7 +272,7 @@ const AddServerTab = () => {
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleViewServer(server._id)}
-                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"
+                      className="flex-1 bg-primary hover:bg-primary/90 text-foreground py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"
                     >
                       <svg
                         className="w-4 h-4"
@@ -297,7 +297,7 @@ const AddServerTab = () => {
                     </button>
                     <button
                       onClick={() => handleDeleteServer(server._id, server.name)}
-                      className="bg-gray-700 hover:bg-red-500 text-gray-300 hover:text-white py-2 px-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center"
+                      className="bg-muted hover:bg-destructive text-foreground/90 hover:text-foreground py-2 px-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center"
                       title="Delete Server"
                     >
                       <svg

@@ -63,29 +63,29 @@ const AddServer = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 pt-16 relative">
+    <div className="min-h-screen bg-background pt-16 relative">
       <div className="fixed inset-0 z-0">
         <img
           src="/background-auth.webp"
           alt="Background"
           className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="absolute inset-0 bg-card/70"></div>
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-white mb-2">Add New Server</h1>
-            <p className="text-gray-400">Add a server to your monitoring dashboard</p>
+            <h1 className="text-4xl font-bold text-foreground mb-2">Add New Server</h1>
+            <p className="text-muted-foreground">Add a server to your monitoring dashboard</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <div className="bg-blue-500/10 backdrop-blur-xl rounded-2xl p-6 border border-blue-500/30">
+              <div className="bg-primary/10 backdrop-blur-xl rounded-2xl p-6 border border-primary/30">
                 <div className="flex items-start gap-3">
                   <svg
-                    className="w-6 h-6 text-blue-400 mt-0.5 flex-shrink-0"
+                    className="w-6 h-6 text-primary mt-0.5 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -98,8 +98,8 @@ const AddServer = () => {
                     />
                   </svg>
                   <div>
-                    <h3 className="text-blue-400 font-medium mb-2">Server Requirements</h3>
-                    <ul className="text-gray-300 text-sm space-y-1">
+                    <h3 className="text-primary font-medium mb-2">Server Requirements</h3>
+                    <ul className="text-foreground/90 text-sm space-y-1">
                       <li>• Server must be accessible from the internet</li>
                       <li>• Use a descriptive name to easily identify your server</li>
                       <li>• IP address can be IPv4, IPv6, or domain name</li>
@@ -109,10 +109,10 @@ const AddServer = () => {
                 </div>
               </div>
 
-              <div className="bg-green-500/10 backdrop-blur-xl rounded-2xl p-6 border border-green-500/30">
+              <div className="bg-primary/10 backdrop-blur-xl rounded-2xl p-6 border border-primary/30">
                 <div className="flex items-start gap-3">
                   <svg
-                    className="w-6 h-6 text-green-400 mt-0.5 flex-shrink-0"
+                    className="w-6 h-6 text-primary mt-0.5 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -125,8 +125,8 @@ const AddServer = () => {
                     />
                   </svg>
                   <div>
-                    <h3 className="text-green-400 font-medium mb-2">Getting Started</h3>
-                    <div className="text-gray-300 text-sm space-y-2">
+                    <h3 className="text-primary font-medium mb-2">Getting Started</h3>
+                    <div className="text-foreground/90 text-sm space-y-2">
                       <p>
                         1. <strong>Server Name:</strong> Choose a descriptive name that helps you
                         identify the server&apos;s purpose (e.g., &quot;Production Web Server&quot;,
@@ -145,10 +145,10 @@ const AddServer = () => {
                 </div>
               </div>
 
-              <div className="bg-yellow-500/10 backdrop-blur-xl rounded-2xl p-6 border border-yellow-500/30">
+              <div className="bg-muted/10 backdrop-blur-xl rounded-2xl p-6 border border-muted-foreground/30">
                 <div className="flex items-start gap-3">
                   <svg
-                    className="w-6 h-6 text-yellow-400 mt-0.5 flex-shrink-0"
+                    className="w-6 h-6 text-muted-foreground mt-0.5 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -161,8 +161,8 @@ const AddServer = () => {
                     />
                   </svg>
                   <div>
-                    <h3 className="text-yellow-400 font-medium mb-2">Security Notice</h3>
-                    <p className="text-gray-300 text-sm">
+                    <h3 className="text-muted-foreground font-medium mb-2">Security Notice</h3>
+                    <p className="text-foreground/90 text-sm">
                       Only add servers that you own or have explicit permission to monitor. Ensure
                       your server&apos;s firewall allows monitoring connections on the required
                       ports.
@@ -173,13 +173,13 @@ const AddServer = () => {
             </div>
 
             <div>
-              <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
+              <div className="bg-card/40 backdrop-blur-xl rounded-2xl p-8 border border-border">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-6">
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium text-gray-300 mb-2"
+                        className="block text-sm font-medium text-foreground/90 mb-2"
                       >
                         Server Name *
                       </label>
@@ -190,7 +190,7 @@ const AddServer = () => {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="e.g., Production Web Server"
-                        className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className="w-full px-4 py-3 bg-card/50 border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                         disabled={loading}
                       />
                     </div>
@@ -198,7 +198,7 @@ const AddServer = () => {
                     <div>
                       <label
                         htmlFor="serverIP"
-                        className="block text-sm font-medium text-gray-300 mb-2"
+                        className="block text-sm font-medium text-foreground/90 mb-2"
                       >
                         Server IP Address *
                       </label>
@@ -209,10 +209,10 @@ const AddServer = () => {
                         value={formData.serverIP}
                         onChange={handleChange}
                         placeholder="e.g., 192.168.1.100 or example.com"
-                        className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors font-mono"
+                        className="w-full px-4 py-3 bg-card/50 border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors font-mono"
                         disabled={loading}
                       />
-                      <p className="text-gray-500 text-xs mt-1">
+                      <p className="text-muted-foreground text-xs mt-1">
                         Enter an IP address or domain name
                       </p>
                     </div>
@@ -222,14 +222,14 @@ const AddServer = () => {
                     <button
                       type="button"
                       onClick={handleCancel}
-                      className="flex-1 bg-gray-800 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex-1 bg-card hover:bg-muted text-foreground py-3 px-6 rounded-lg font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                       disabled={loading}
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="flex-1 bg-primary hover:bg-primary/90 text-foreground py-3 px-6 rounded-lg font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                       disabled={loading}
                     >
                       {loading ? (

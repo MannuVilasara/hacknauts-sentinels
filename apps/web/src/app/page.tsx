@@ -12,14 +12,14 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 relative">
+    <div className="min-h-screen bg-background relative">
       <div className="fixed inset-0 z-0">
         <img
           src="/background-auth.webp"
           alt="Background"
           className="w-full h-full object-cover opacity-10"
         />
-        <div className="absolute inset-0 bg-black/80"></div>
+        <div className="absolute inset-0 bg-card/80"></div>
       </div>
 
       <div className="relative z-10">
@@ -27,9 +27,9 @@ export default function HomePage() {
         <section className="pt-32 pb-16 px-4">
           <div className="container mx-auto max-w-6xl text-center">
             <div className="mb-8">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 mb-8">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-xl rounded-3xl border border-border mb-8">
                 <svg
-                  className="w-10 h-10 text-white"
+                  className="w-10 h-10 text-foreground"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -43,17 +43,14 @@ export default function HomePage() {
                 </svg>
               </div>
 
-              <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
                 Zero-Day
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
-                  {' '}
-                  Protection
-                </span>
+                <span className="text-transparent bg-clip-text bg-primary"> Protection</span>
               </h1>
 
-              <p className="text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+              <p className="text-xl lg:text-2xl text-foreground/90 max-w-4xl mx-auto mb-12 leading-relaxed">
                 Bridge the critical security gap. Get vulnerability fixes from service providers
-                <span className="text-red-400 font-semibold"> before public patches</span> are
+                <span className="text-destructive font-semibold"> before public patches</span> are
                 released, protecting your users during the most dangerous vulnerability window.
               </p>
 
@@ -61,21 +58,21 @@ export default function HomePage() {
                 {!user ? (
                   <Link
                     href="/signup"
-                    className="bg-white text-black px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-white/20"
+                    className="bg-foreground text-background px-8 py-4 rounded-2xl font-bold text-lg hover:bg-muted/100 transition-all duration-300 shadow-2xl hover:shadow-primary/20"
                   >
                     Start Free Protection
                   </Link>
                 ) : (
                   <Link
                     href={getDashboardRoute()}
-                    className="bg-white text-black px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-white/20"
+                    className="bg-foreground text-background px-8 py-4 rounded-2xl font-bold text-lg hover:bg-muted/100 transition-all duration-300 shadow-2xl hover:shadow-primary/20"
                   >
                     Go to Dashboard
                   </Link>
                 )}
               </div>
 
-              <div className="mt-8 flex items-center justify-center gap-2 text-green-400">
+              <div className="mt-8 flex items-center justify-center gap-2 text-primary">
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                 <span className="font-semibold">
                   FREE Plan Available • Premium Subscriptions Coming Soon
@@ -89,20 +86,20 @@ export default function HomePage() {
         <section className="py-20 px-4">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-                The Critical <span className="text-red-400">Security Gap</span>
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                The Critical <span className="text-destructive">Security Gap</span>
               </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 When servers discover vulnerabilities, there's a dangerous window between discovery
                 and public patch release. We eliminate this gap by providing immediate protection.
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-8 border border-white/10 text-center hover:border-red-400/50 transition-all duration-300">
-                <div className="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border text-center hover:border-red-400/50 transition-all duration-300">
+                <div className="w-16 h-16 bg-destructive/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <svg
-                    className="w-8 h-8 text-red-400"
+                    className="w-8 h-8 text-destructive"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -115,17 +112,17 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">Vulnerability Discovered</h3>
-                <p className="text-gray-400">
+                <h3 className="text-xl font-bold text-foreground mb-4">Vulnerability Discovered</h3>
+                <p className="text-muted-foreground">
                   Server providers (Ubuntu, AWS, Vercel) discover security vulnerabilities in their
                   systems before public disclosure.
                 </p>
               </div>
 
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-8 border border-white/10 text-center hover:border-blue-400/50 transition-all duration-300">
-                <div className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border text-center hover:border-blue-400/50 transition-all duration-300">
+                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <svg
-                    className="w-8 h-8 text-blue-400"
+                    className="w-8 h-8 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -138,17 +135,17 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">Private Sharing</h3>
-                <p className="text-gray-400">
+                <h3 className="text-xl font-bold text-foreground mb-4">Private Sharing</h3>
+                <p className="text-muted-foreground">
                   Partners share vulnerability details and tested fixes with SecureAuth immediately
                   - before working on public patches.
                 </p>
               </div>
 
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-8 border border-white/10 text-center hover:border-green-400/50 transition-all duration-300">
-                <div className="w-16 h-16 bg-green-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border text-center hover:border-green-400/50 transition-all duration-300">
+                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <svg
-                    className="w-8 h-8 text-green-400"
+                    className="w-8 h-8 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -161,8 +158,8 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">Instant Protection</h3>
-                <p className="text-gray-400">
+                <h3 className="text-xl font-bold text-foreground mb-4">Instant Protection</h3>
+                <p className="text-muted-foreground">
                   We automatically apply fixes to registered users' GitHub repos via Pull Requests -
                   protecting them during the critical window.
                 </p>
@@ -172,23 +169,23 @@ export default function HomePage() {
         </section>
 
         {/* Comprehensive Features Section */}
-        <section className="py-20 px-4 bg-black/20">
+        <section className="py-20 px-4 bg-muted/20">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-                Unified <span className="text-cyan-400">Security Platform</span>
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                Unified <span className="text-primary">Security Platform</span>
               </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Everything you need for enterprise-grade security in one comprehensive platform.
                 Stop juggling multiple tools and consolidate your security stack.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-red-400/50 transition-all duration-300">
-                <div className="w-12 h-12 bg-red-500/20 rounded-2xl flex items-center justify-center mb-4">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-border hover:border-red-400/50 transition-all duration-300">
+                <div className="w-12 h-12 bg-destructive/20 rounded-2xl flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-red-400"
+                    className="w-6 h-6 text-destructive"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -201,17 +198,17 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">Git Repository Scanner</h3>
-                <p className="text-gray-400 text-sm">
+                <h3 className="text-lg font-bold text-foreground mb-3">Git Repository Scanner</h3>
+                <p className="text-muted-foreground text-sm">
                   Automated code analysis detecting hardcoded secrets, API keys, vulnerabilities,
                   and unsafe configurations with AI-powered auto-fixes.
                 </p>
               </div>
 
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-blue-400/50 transition-all duration-300">
-                <div className="w-12 h-12 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-4">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-border hover:border-blue-400/50 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-blue-400"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -224,17 +221,17 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">Zero-Trust Secrets Vault</h3>
-                <p className="text-gray-400 text-sm">
+                <h3 className="text-lg font-bold text-foreground mb-3">Zero-Trust Secrets Vault</h3>
+                <p className="text-muted-foreground text-sm">
                   Client-side encrypted vault for API keys, passwords, tokens, and certificates.
                   Only you can decrypt your data.
                 </p>
               </div>
 
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-purple-400/50 transition-all duration-300">
-                <div className="w-12 h-12 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-4">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-border hover:border-purple-400/50 transition-all duration-300">
+                <div className="w-12 h-12 bg-muted/20 rounded-2xl flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-purple-400"
+                    className="w-6 h-6 text-muted-foreground"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -247,17 +244,17 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">AI Security Assistant</h3>
-                <p className="text-gray-400 text-sm">
+                <h3 className="text-lg font-bold text-foreground mb-3">AI Security Assistant</h3>
+                <p className="text-muted-foreground text-sm">
                   Intelligent AI explains vulnerabilities in plain language, suggests secure
                   practices, and generates automated fixes.
                 </p>
               </div>
 
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-yellow-400/50 transition-all duration-300">
-                <div className="w-12 h-12 bg-yellow-500/20 rounded-2xl flex items-center justify-center mb-4">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-border hover:border-yellow-400/50 transition-all duration-300">
+                <div className="w-12 h-12 bg-muted/20 rounded-2xl flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-yellow-400"
+                    className="w-6 h-6 text-muted-foreground"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -270,17 +267,17 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">Log Monitoring & Alerts</h3>
-                <p className="text-gray-400 text-sm">
+                <h3 className="text-lg font-bold text-foreground mb-3">Log Monitoring & Alerts</h3>
+                <p className="text-muted-foreground text-sm">
                   Real-time log analysis detecting application errors, attack attempts, suspicious
                   behavior, and misconfigurations.
                 </p>
               </div>
 
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-green-400/50 transition-all duration-300">
-                <div className="w-12 h-12 bg-green-500/20 rounded-2xl flex items-center justify-center mb-4">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-border hover:border-green-400/50 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-green-400"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -293,17 +290,17 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">Zero-Day Protection</h3>
-                <p className="text-gray-400 text-sm">
+                <h3 className="text-lg font-bold text-foreground mb-3">Zero-Day Protection</h3>
+                <p className="text-muted-foreground text-sm">
                   Get security fixes immediately when vulnerabilities are discovered, before public
                   patches are released.
                 </p>
               </div>
 
-              <div className="bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-orange-400/50 transition-all duration-300">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-2xl flex items-center justify-center mb-4">
+              <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-6 border border-border hover:border-primary/50 transition-all duration-300">
+                <div className="w-12 h-12 bg-primary/500/20 rounded-2xl flex items-center justify-center mb-4">
                   <svg
-                    className="w-6 h-6 text-orange-400"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -316,8 +313,8 @@ export default function HomePage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">Developer Dashboard</h3>
-                <p className="text-gray-400 text-sm">
+                <h3 className="text-lg font-bold text-foreground mb-3">Developer Dashboard</h3>
+                <p className="text-muted-foreground text-sm">
                   Modern UI with vulnerability reports, secrets management, log viewer, and auto-fix
                   suggestions in one place.
                 </p>
@@ -329,31 +326,31 @@ export default function HomePage() {
         {/* CTA Section */}
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
               Ready to Revolutionize Your Security?
             </h2>
-            <p className="text-lg text-gray-400 mb-8">
+            <p className="text-lg text-muted-foreground mb-8">
               Join the future of automated cybersecurity and protect what matters most.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               {!user ? (
                 <Link
                   href="/signup"
-                  className="bg-white text-black px-8 py-4 rounded-2xl font-bold hover:bg-gray-100 transition-all duration-300"
+                  className="bg-foreground text-background px-8 py-4 rounded-2xl font-bold hover:bg-muted/100 transition-all duration-300"
                 >
                   Start Free Protection
                 </Link>
               ) : (
                 <Link
                   href={getDashboardRoute()}
-                  className="bg-white text-black px-8 py-4 rounded-2xl font-bold hover:bg-gray-100 transition-all duration-300"
+                  className="bg-foreground text-background px-8 py-4 rounded-2xl font-bold hover:bg-muted/100 transition-all duration-300"
                 >
                   Go to Dashboard
                 </Link>
               )}
               <Link
                 href="/about"
-                className="border border-white/30 text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all duration-300"
+                className="border border-border text-foreground px-8 py-4 rounded-2xl font-bold hover:bg-muted transition-all duration-300"
               >
                 Learn More
               </Link>

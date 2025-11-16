@@ -20,14 +20,14 @@ const Footer = () => {
   if (isAuthPage) return null;
 
   return (
-    <footer className="bg-black/95 backdrop-blur-xl border-t border-gray-800/50 relative">
+    <footer className="bg-background backdrop-blur-xl border-t border-border/50 relative">
       <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-900/20 to-transparent pointer-events-none"></div>
 
       <div className="relative z-10 container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-foreground rounded-lg flex items-center justify-center">
                 <svg
                   className="w-5 h-5 text-black"
                   fill="none"
@@ -42,14 +42,17 @@ const Footer = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white">SecureAuth</h3>
+              <h3 className="text-xl font-bold text-foreground">SecureAuth</h3>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-muted-foreground text-sm leading-relaxed">
               Advanced cybersecurity solutions protecting your digital infrastructure with
               enterprise-grade authentication and monitoring systems.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+              >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"
@@ -58,12 +61,18 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+              >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
                 </svg>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+              >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"
@@ -72,7 +81,10 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+              >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"
@@ -85,12 +97,12 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-white font-semibold text-lg">Services</h4>
+            <h4 className="text-foreground font-semibold text-lg">Services</h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   Multi-Factor Authentication
                 </a>
@@ -98,7 +110,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   Security Monitoring
                 </a>
@@ -106,7 +118,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   Threat Detection
                 </a>
@@ -114,7 +126,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   Identity Management
                 </a>
@@ -122,7 +134,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   Compliance Auditing
                 </a>
@@ -130,7 +142,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   Risk Assessment
                 </a>
@@ -139,12 +151,12 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-white font-semibold text-lg">Quick Links</h4>
+            <h4 className="text-foreground font-semibold text-lg">Quick Links</h4>
             <ul className="space-y-3">
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   About Us
                 </Link>
@@ -152,7 +164,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   Contact Support
                 </Link>
@@ -160,7 +172,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   Documentation
                 </a>
@@ -168,7 +180,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   API Reference
                 </a>
@@ -176,7 +188,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   Security Center
                 </a>
@@ -184,7 +196,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   System Status
                 </a>
@@ -193,11 +205,11 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-white font-semibold text-lg">Contact</h4>
+            <h4 className="text-foreground font-semibold text-lg">Contact</h4>
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-4 h-4 text-gray-400"
+                  className="w-4 h-4 text-muted-foreground"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -211,7 +223,7 @@ const Footer = () => {
                 </svg>
                 <a
                   href="mailto:support@secureauth.com"
-                  className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 >
                   support@secureauth.com
                 </a>
@@ -219,7 +231,7 @@ const Footer = () => {
 
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-4 h-4 text-gray-400"
+                  className="w-4 h-4 text-muted-foreground"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -231,12 +243,12 @@ const Footer = () => {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <span className="text-gray-400 text-sm">+1 (555) 123-4567</span>
+                <span className="text-muted-foreground text-sm">+1 (555) 123-4567</span>
               </div>
 
               <div className="flex items-start gap-2">
                 <svg
-                  className="w-4 h-4 text-gray-400 mt-0.5"
+                  className="w-4 h-4 text-muted-foreground mt-0.5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -254,49 +266,47 @@ const Footer = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <div className="text-gray-400 text-sm">
+                <div className="text-muted-foreground text-sm">
                   <p>123 Security Boulevard</p>
                   <p>San Francisco, CA 94105</p>
                 </div>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-gray-800">
+              <div className="mt-4 pt-4 border-t border-border">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-green-400 text-sm font-medium">
-                    24/7 Security Monitoring
-                  </span>
+                  <span className="text-primary text-sm font-medium">24/7 Security Monitoring</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-800/50">
+        <div className="mt-12 pt-8 border-t border-border/50">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-col md:flex-row items-center gap-4 text-gray-400 text-sm">
+            <div className="flex flex-col md:flex-row items-center gap-4 text-muted-foreground text-sm">
               <p>&copy; {currentYear} SecureAuth. All rights reserved.</p>
               <div className="flex items-center gap-4">
                 <Link
                   href="/terms-and-conditions"
-                  className="hover:text-white transition-colors duration-300"
+                  className="hover:text-foreground transition-colors duration-300"
                 >
                   Terms & Conditions
                 </Link>
-                <span className="text-gray-600">•</span>
-                <a href="#" className="hover:text-white transition-colors duration-300">
+                <span className="text-muted-foreground">•</span>
+                <a href="#" className="hover:text-foreground transition-colors duration-300">
                   Privacy Policy
                 </a>
-                <span className="text-gray-600">•</span>
-                <a href="#" className="hover:text-white transition-colors duration-300">
+                <span className="text-muted-foreground">•</span>
+                <a href="#" className="hover:text-foreground transition-colors duration-300">
                   Cookie Policy
                 </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <svg
-                className="w-4 h-4 text-green-400"
+                className="w-4 h-4 text-primary"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

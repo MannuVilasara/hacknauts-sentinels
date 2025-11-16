@@ -4,48 +4,59 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
-  }
+    /* DaisyUI Sunset Theme - Warm Dark Theme */
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    /* Base Colors (Backgrounds & Content) */
+    --background: 237.69 19% 22%; /* base-100: oklch(22% 0.019 237.69) */
+    --foreground: 245.096 43% 77.383%; /* base-content: oklch(77.383% 0.043 245.096) */
+    --card: 237.69 19% 20%; /* base-200: oklch(20% 0.019 237.69) */
+    --card-foreground: 245.096 43% 77.383%;
+    --popover: 237.69 19% 18%; /* base-300: oklch(18% 0.019 237.69) */
+    --popover-foreground: 245.096 43% 77.383%;
+
+    /* Primary (Orange/Yellow) */
+    --primary: 39.947 158% 74.703%; /* oklch(74.703% 0.158 39.947) */
+    --primary-foreground: 39.947 31% 14.94%; /* oklch(14.94% 0.031 39.947) */
+
+    /* Secondary (Red/Pink) */
+    --secondary: 2.72 177% 72.537%; /* oklch(72.537% 0.177 2.72) */
+    --secondary-foreground: 2.72 35% 14.507%; /* oklch(14.507% 0.035 2.72) */
+
+    /* Accent (Purple/Magenta) */
+    --accent: 299.844 166% 71.294%; /* oklch(71.294% 0.166 299.844) */
+    --accent-foreground: 299.844 33% 14.258%; /* oklch(14.258% 0.033 299.844) */
+
+    /* Neutral (Dark Blue-Gray) */
+    --neutral: 237.69 19% 26%; /* oklch(26% 0.019 237.69) */
+    --neutral-foreground: 237.69 19% 70%; /* oklch(70% 0.019 237.69) */
+
+    /* Muted */
+    --muted: 237.69 19% 26%;
+    --muted-foreground: 237.69 19% 60%;
+
+    /* Info (Light Blue) */
+    --info: 206.015 85% 85.559%; /* oklch(85.559% 0.085 206.015) */
+    --info-foreground: 206.015 17% 17.111%; /* oklch(17.111% 0.017 206.015) */
+
+    /* Success (Light Green) */
+    --success: 144.778 85% 85.56%; /* oklch(85.56% 0.085 144.778) */
+    --success-foreground: 144.778 17% 17.112%; /* oklch(17.112% 0.017 144.778) */
+
+    /* Warning (Light Yellow) */
+    --warning: 74.427 84% 85.569%; /* oklch(85.569% 0.084 74.427) */
+    --warning-foreground: 74.427 16% 17.113%; /* oklch(17.113% 0.016 74.427) */
+
+    /* Error/Destructive (Light Red) */
+    --destructive: 16.886 78% 85.511%; /* oklch(85.511% 0.078 16.886) */
+    --destructive-foreground: 16.886 15% 17.102%; /* oklch(17.102% 0.015 16.886) */
+
+    /* Border & Input */
+    --border: 237.69 19% 18%; /* base-300 */
+    --input: 237.69 19% 18%;
+    --ring: 39.947 158% 74.703%; /* primary */
+
+    /* Border Radius (DaisyUI Sunset - Rounded) */
+    --radius: 1rem; /* radius-box */
   }
 }
 
@@ -55,5 +66,6 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 }

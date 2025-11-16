@@ -63,26 +63,26 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 pt-16 relative">
+    <div className="min-h-screen bg-background pt-16 relative">
       <div className="fixed inset-0 z-0">
         <img
           src="/background-auth.webp"
           alt="Background"
           className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="absolute inset-0 bg-card/70"></div>
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Contact{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
                 Us
               </span>
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Get in touch with our security experts. We&apos;re here to help you build a more
               secure digital future.
             </p>
@@ -90,14 +90,14 @@ const ContactPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="space-y-8">
-              <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
-                <h2 className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
+              <div className="bg-card/40 backdrop-blur-xl rounded-2xl p-8 border border-border">
+                <h2 className="text-2xl font-bold text-foreground mb-6">Get in Touch</h2>
 
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-blue-500/20 p-3 rounded-xl">
+                    <div className="bg-primary/20 p-3 rounded-xl">
                       <svg
-                        className="w-6 h-6 text-blue-400"
+                        className="w-6 h-6 text-primary"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -111,16 +111,16 @@ const ContactPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Email Us</h3>
-                      <p className="text-gray-400">support@secureauth.com</p>
-                      <p className="text-gray-400">sales@secureauth.com</p>
+                      <h3 className="text-lg font-semibold text-foreground">Email Us</h3>
+                      <p className="text-muted-foreground">support@secureauth.com</p>
+                      <p className="text-muted-foreground">sales@secureauth.com</p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="bg-green-500/20 p-3 rounded-xl">
+                    <div className="bg-primary/20 p-3 rounded-xl">
                       <svg
-                        className="w-6 h-6 text-green-400"
+                        className="w-6 h-6 text-primary"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -134,16 +134,16 @@ const ContactPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Call Us</h3>
-                      <p className="text-gray-400">+1 (555) 123-4567</p>
-                      <p className="text-gray-400 text-sm">Mon-Fri 9AM-6PM EST</p>
+                      <h3 className="text-lg font-semibold text-foreground">Call Us</h3>
+                      <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                      <p className="text-muted-foreground text-sm">Mon-Fri 9AM-6PM EST</p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="bg-purple-500/20 p-3 rounded-xl">
+                    <div className="bg-muted/20 p-3 rounded-xl">
                       <svg
-                        className="w-6 h-6 text-purple-400"
+                        className="w-6 h-6 text-muted-foreground"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -163,16 +163,16 @@ const ContactPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Visit Us</h3>
-                      <p className="text-gray-400">123 Security Boulevard</p>
-                      <p className="text-gray-400">San Francisco, CA 94105</p>
+                      <h3 className="text-lg font-semibold text-foreground">Visit Us</h3>
+                      <p className="text-muted-foreground">123 Security Boulevard</p>
+                      <p className="text-muted-foreground">San Francisco, CA 94105</p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="bg-red-500/20 p-3 rounded-xl">
+                    <div className="bg-destructive/20 p-3 rounded-xl">
                       <svg
-                        className="w-6 h-6 text-red-400"
+                        className="w-6 h-6 text-destructive"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -186,17 +186,17 @@ const ContactPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Emergency Support</h3>
-                      <p className="text-gray-400">security@secureauth.com</p>
-                      <p className="text-gray-400 text-sm">24/7 Critical Issues</p>
+                      <h3 className="text-lg font-semibold text-foreground">Emergency Support</h3>
+                      <p className="text-muted-foreground">security@secureauth.com</p>
+                      <p className="text-muted-foreground text-sm">24/7 Critical Issues</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
-                <h3 className="text-xl font-bold text-white mb-4">Business Hours</h3>
-                <div className="space-y-2 text-gray-400">
+              <div className="bg-card/40 backdrop-blur-xl rounded-2xl p-8 border border-border">
+                <h3 className="text-xl font-bold text-foreground mb-4">Business Hours</h3>
+                <div className="space-y-2 text-muted-foreground">
                   <div className="flex justify-between">
                     <span>Monday - Friday:</span>
                     <span>9:00 AM - 6:00 PM EST</span>
@@ -209,22 +209,22 @@ const ContactPage = () => {
                     <span>Sunday:</span>
                     <span>Closed</span>
                   </div>
-                  <div className="mt-4 pt-4 border-t border-gray-700">
+                  <div className="mt-4 pt-4 border-t border-border">
                     <p className="text-sm">
-                      <span className="text-red-400">Emergency Support:</span> Available 24/7
+                      <span className="text-destructive">Emergency Support:</span> Available 24/7
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
-              <h2 className="text-2xl font-bold text-white mb-6">Send us a Message</h2>
+            <div className="bg-card/40 backdrop-blur-xl rounded-2xl p-8 border border-border">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-300 text-sm font-medium mb-2">
+                    <label className="block text-foreground/90 text-sm font-medium mb-2">
                       Full Name *
                     </label>
                     <input
@@ -233,13 +233,13 @@ const ContactPage = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 bg-card/50 border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                       placeholder="John Doe"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-gray-300 text-sm font-medium mb-2">
+                    <label className="block text-foreground/90 text-sm font-medium mb-2">
                       Email Address *
                     </label>
                     <input
@@ -248,14 +248,14 @@ const ContactPage = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 bg-card/50 border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                       placeholder="john@company.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">
+                  <label className="block text-foreground/90 text-sm font-medium mb-2">
                     Company/Organization
                   </label>
                   <input
@@ -263,19 +263,21 @@ const ContactPage = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 bg-card/50 border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     placeholder="Your Company"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">Subject *</label>
+                  <label className="block text-foreground/90 text-sm font-medium mb-2">
+                    Subject *
+                  </label>
                   <select
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 bg-card/50 border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                   >
                     <option value="">Select a subject</option>
                     <option value="general">General Inquiry</option>
@@ -287,14 +289,16 @@ const ContactPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 text-sm font-medium mb-2">Message *</label>
+                  <label className="block text-foreground/90 text-sm font-medium mb-2">
+                    Message *
+                  </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-card/50 border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
                     placeholder="Tell us how we can help you..."
                   />
                 </div>
@@ -302,7 +306,7 @@ const ContactPage = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 cursor-pointer rounded-xl bg-white text-black font-semibold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-4 cursor-pointer rounded-xl bg-foreground text-background font-semibold hover:bg-muted/100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center gap-2">

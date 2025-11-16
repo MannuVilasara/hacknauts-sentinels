@@ -79,7 +79,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center px-4 overflow-hidden bg-black">
+    <div className="min-h-screen relative flex items-center justify-center px-4 overflow-hidden bg-background">
       <div className="absolute inset-0">
         <Image
           src="/background-auth.webp"
@@ -88,7 +88,7 @@ const LoginPage = () => {
           className="object-cover opacity-30"
           priority
         />
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-card/60"></div>
       </div>
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
@@ -98,7 +98,7 @@ const LoginPage = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           <div className="text-center lg:text-left space-y-6">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-3xl shadow-2xl mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-foreground rounded-3xl shadow-2xl mb-6">
               <svg
                 className="w-10 h-10 text-black"
                 fill="none"
@@ -115,29 +115,29 @@ const LoginPage = () => {
             </div>
 
             <div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+              <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
                 Welcome
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
                   {' '}
                   Back
                 </span>
               </h1>
-              <p className="text-xl text-gray-400 mb-6 max-w-md">
+              <p className="text-xl text-muted-foreground mb-6 max-w-md">
                 Access your SecureAuth dashboard with enterprise-grade security
               </p>
 
               <div className="space-y-3 text-left max-w-md">
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-gray-300">Secure authentication</span>
+                  <div className="w-2 h-2 bg-foreground rounded-full"></div>
+                  <span className="text-foreground/90">Secure authentication</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-gray-300">Protected user sessions</span>
+                  <div className="w-2 h-2 bg-foreground rounded-full"></div>
+                  <span className="text-foreground/90">Protected user sessions</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span className="text-gray-300">Advanced threat detection</span>
+                  <div className="w-2 h-2 bg-foreground rounded-full"></div>
+                  <span className="text-foreground/90">Advanced threat detection</span>
                 </div>
               </div>
             </div>
@@ -145,10 +145,10 @@ const LoginPage = () => {
 
           <div className="flex justify-center lg:justify-end">
             <div className="w-full max-w-md">
-              <div className="backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-8 bg-zinc-900/95">
-                <h2 className="text-2xl text-white font-bold mb-1 text-center">Log In</h2>
+              <div className="backdrop-blur-xl rounded-3xl shadow-2xl border border-border p-8 bg-card/95">
+                <h2 className="text-2xl text-foreground font-bold mb-1 text-center">Log In</h2>
 
-                <p className="text-gray-400 text-sm text-center mb-8">
+                <p className="text-muted-foreground text-sm text-center mb-8">
                   Enter your credentials to access your account
                 </p>
 
@@ -159,7 +159,7 @@ const LoginPage = () => {
                       onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       placeholder="Email address"
-                      className="w-full px-4 py-3 rounded-xl bg-black/40 text-white placeholder-gray-400 border border-gray-600/40 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-xl bg-card/40 text-foreground placeholder-muted-foreground border border-border/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
                     />
 
                     <input
@@ -167,7 +167,7 @@ const LoginPage = () => {
                       onChange={(e) => setPassword(e.target.value)}
                       type="password"
                       placeholder="Password"
-                      className="w-full px-4 py-3 rounded-xl bg-black/40 text-white placeholder-gray-400 border border-gray-600/40 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-xl bg-card/40 text-foreground placeholder-muted-foreground border border-border/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
                     />
                   </div>
 
@@ -177,16 +177,16 @@ const LoginPage = () => {
                       id="acceptTermsLogin"
                       checked={acceptedTerms}
                       onChange={(e) => setAcceptedTerms(e.target.checked)}
-                      className="w-4 h-4 mt-1 rounded bg-black/40 border border-gray-600/40 text-white focus:ring-white/50"
+                      className="w-4 h-4 mt-1 rounded bg-card/40 border border-border/40 text-foreground focus:ring-primary/50"
                     />
                     <label
                       htmlFor="acceptTermsLogin"
-                      className="text-gray-300 text-sm cursor-pointer"
+                      className="text-foreground/90 text-sm cursor-pointer"
                     >
                       I agree to the{' '}
                       <Link
                         href="/terms-and-conditions"
-                        className="text-white hover:text-gray-300 underline"
+                        className="text-foreground hover:text-foreground/90 underline"
                       >
                         Terms and Conditions
                       </Link>
@@ -196,7 +196,7 @@ const LoginPage = () => {
                   <div className="text-right mt-2">
                     <a
                       href="#"
-                      className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
+                      className="text-foreground hover:text-foreground/90 transition-colors duration-300 text-sm"
                     >
                       Forgot password?
                     </a>
@@ -205,7 +205,7 @@ const LoginPage = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full mt-6 py-3 cursor-pointer rounded-xl bg-white text-black font-semibold hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                    className="w-full mt-6 py-3 cursor-pointer rounded-xl bg-foreground text-background font-semibold hover:bg-muted/100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
                   >
                     {isLoading ? (
                       <div className="flex items-center justify-center gap-2">
@@ -233,12 +233,12 @@ const LoginPage = () => {
                   </button>
                 </form>
 
-                <div className="text-center mt-6 pt-6 border-t border-gray-700/30">
-                  <p className="text-gray-400 text-sm">
+                <div className="text-center mt-6 pt-6 border-t border-border/30">
+                  <p className="text-muted-foreground text-sm">
                     Don&apos;t have an account?{' '}
                     <Link
                       href="/signup"
-                      className="text-white hover:text-gray-300 font-medium transition-colors duration-300"
+                      className="text-foreground hover:text-foreground/90 font-medium transition-colors duration-300"
                     >
                       Create Account
                     </Link>

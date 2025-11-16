@@ -7,26 +7,26 @@ const AdminDashboard = () => {
   const { user } = useAuthStore();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 pt-16">
+    <div className="min-h-screen bg-background pt-16">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-white mb-2">Admin Dashboard</h1>
-            <p className="text-gray-400">
+            <h1 className="text-4xl font-bold text-foreground mb-2">Admin Dashboard</h1>
+            <p className="text-muted-foreground">
               Manage users, security settings, and system administration
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 backdrop-blur-xl rounded-2xl p-6 border border-blue-500/30">
+            <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 backdrop-blur-xl rounded-2xl p-6 border border-primary/30">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-blue-400 text-sm font-medium">Total Users</p>
-                  <p className="text-3xl font-bold text-white">1,234</p>
+                  <p className="text-primary text-sm font-medium">Total Users</p>
+                  <p className="text-3xl font-bold text-foreground">1,234</p>
                 </div>
-                <div className="bg-blue-500/30 p-3 rounded-full">
+                <div className="bg-primary/30 p-3 rounded-full">
                   <svg
-                    className="w-6 h-6 text-blue-400"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -42,15 +42,15 @@ const AdminDashboard = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 backdrop-blur-xl rounded-2xl p-6 border border-green-500/30">
+            <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 backdrop-blur-xl rounded-2xl p-6 border border-primary/30">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-green-400 text-sm font-medium">Active Sessions</p>
-                  <p className="text-3xl font-bold text-white">842</p>
+                  <p className="text-primary text-sm font-medium">Active Sessions</p>
+                  <p className="text-3xl font-bold text-foreground">842</p>
                 </div>
-                <div className="bg-green-500/30 p-3 rounded-full">
+                <div className="bg-primary/30 p-3 rounded-full">
                   <svg
-                    className="w-6 h-6 text-green-400"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -66,15 +66,15 @@ const AdminDashboard = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-red-500/20 to-red-600/20 backdrop-blur-xl rounded-2xl p-6 border border-red-500/30">
+            <div className="bg-gradient-to-r from-red-500/20 to-red-600/20 backdrop-blur-xl rounded-2xl p-6 border border-destructive/30">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-red-400 text-sm font-medium">Security Alerts</p>
-                  <p className="text-3xl font-bold text-white">7</p>
+                  <p className="text-destructive text-sm font-medium">Security Alerts</p>
+                  <p className="text-3xl font-bold text-foreground">7</p>
                 </div>
-                <div className="bg-red-500/30 p-3 rounded-full">
+                <div className="bg-destructive/30 p-3 rounded-full">
                   <svg
-                    className="w-6 h-6 text-red-400"
+                    className="w-6 h-6 text-destructive"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -90,15 +90,15 @@ const AdminDashboard = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-purple-500/20 to-purple-600/20 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/30">
+            <div className="bg-gradient-to-r from-purple-500/20 to-purple-600/20 backdrop-blur-xl rounded-2xl p-6 border border-border/30">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-purple-400 text-sm font-medium">System Status</p>
-                  <p className="text-3xl font-bold text-white">99.9%</p>
+                  <p className="text-muted-foreground text-sm font-medium">System Status</p>
+                  <p className="text-3xl font-bold text-foreground">99.9%</p>
                 </div>
-                <div className="bg-purple-500/30 p-3 rounded-full">
+                <div className="bg-muted/30 p-3 rounded-full">
                   <svg
-                    className="w-6 h-6 text-purple-400"
+                    className="w-6 h-6 text-muted-foreground"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -116,10 +116,10 @@ const AdminDashboard = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
-              <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+            <div className="bg-card/40 backdrop-blur-xl rounded-2xl p-6 border border-border">
+              <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
                 <svg
-                  className="w-6 h-6 text-blue-400"
+                  className="w-6 h-6 text-primary"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -134,7 +134,7 @@ const AdminDashboard = () => {
                 User Management
               </h3>
               <div className="space-y-3">
-                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-200 text-white flex items-center justify-between">
+                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-muted transition-colors duration-200 text-foreground flex items-center justify-between">
                   <span>View All Users</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
@@ -145,7 +145,7 @@ const AdminDashboard = () => {
                     />
                   </svg>
                 </button>
-                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-200 text-white flex items-center justify-between">
+                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-muted transition-colors duration-200 text-foreground flex items-center justify-between">
                   <span>Manage Roles</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
@@ -156,7 +156,7 @@ const AdminDashboard = () => {
                     />
                   </svg>
                 </button>
-                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-200 text-white flex items-center justify-between">
+                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-muted transition-colors duration-200 text-foreground flex items-center justify-between">
                   <span>User Activity Logs</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
@@ -170,10 +170,10 @@ const AdminDashboard = () => {
               </div>
             </div>
 
-            <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
-              <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+            <div className="bg-card/40 backdrop-blur-xl rounded-2xl p-6 border border-border">
+              <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
                 <svg
-                  className="w-6 h-6 text-red-400"
+                  className="w-6 h-6 text-destructive"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -188,7 +188,7 @@ const AdminDashboard = () => {
                 Security Management
               </h3>
               <div className="space-y-3">
-                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-200 text-white flex items-center justify-between">
+                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-muted transition-colors duration-200 text-foreground flex items-center justify-between">
                   <span>Security Alerts</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
@@ -199,7 +199,7 @@ const AdminDashboard = () => {
                     />
                   </svg>
                 </button>
-                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-200 text-white flex items-center justify-between">
+                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-muted transition-colors duration-200 text-foreground flex items-center justify-between">
                   <span>Failed Login Attempts</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
@@ -210,7 +210,7 @@ const AdminDashboard = () => {
                     />
                   </svg>
                 </button>
-                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-200 text-white flex items-center justify-between">
+                <button className="w-full text-left p-3 rounded-lg bg-white/5 hover:bg-muted transition-colors duration-200 text-foreground flex items-center justify-between">
                   <span>System Configuration</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
@@ -225,29 +225,29 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="mt-8 bg-black/40 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
-            <h3 className="text-xl font-semibold text-white mb-4">Recent System Activities</h3>
+          <div className="mt-8 bg-card/40 backdrop-blur-xl rounded-2xl p-6 border border-border">
+            <h3 className="text-xl font-semibold text-foreground mb-4">Recent System Activities</h3>
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 rounded-lg bg-white/5">
                 <div>
-                  <p className="text-white">New user registration: john@example.com</p>
-                  <p className="text-gray-400 text-sm">2 minutes ago</p>
+                  <p className="text-foreground">New user registration: john@example.com</p>
+                  <p className="text-muted-foreground text-sm">2 minutes ago</p>
                 </div>
-                <span className="text-green-400 text-sm">Success</span>
+                <span className="text-primary text-sm">Success</span>
               </div>
               <div className="flex items-center justify-between p-3 rounded-lg bg-white/5">
                 <div>
-                  <p className="text-white">Failed login attempt from unknown IP</p>
-                  <p className="text-gray-400 text-sm">5 minutes ago</p>
+                  <p className="text-foreground">Failed login attempt from unknown IP</p>
+                  <p className="text-muted-foreground text-sm">5 minutes ago</p>
                 </div>
-                <span className="text-red-400 text-sm">Alert</span>
+                <span className="text-destructive text-sm">Alert</span>
               </div>
               <div className="flex items-center justify-between p-3 rounded-lg bg-white/5">
                 <div>
-                  <p className="text-white">System backup completed successfully</p>
-                  <p className="text-gray-400 text-sm">1 hour ago</p>
+                  <p className="text-foreground">System backup completed successfully</p>
+                  <p className="text-muted-foreground text-sm">1 hour ago</p>
                 </div>
-                <span className="text-blue-400 text-sm">Info</span>
+                <span className="text-primary text-sm">Info</span>
               </div>
             </div>
           </div>
