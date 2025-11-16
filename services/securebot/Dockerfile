@@ -21,6 +21,9 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 securebot
 
+# Create repos directory with proper permissions
+RUN mkdir -p repos && chown -R securebot:nodejs repos
+
 # Copy dependencies and source code
 COPY --from=deps /app/node_modules ./node_modules
 COPY services/securebot/src ./src
