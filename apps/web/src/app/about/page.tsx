@@ -303,20 +303,16 @@ const AboutPage = () => {
                     <span className="text-green-400 font-semibold">Node.js 20+</span>
                   </div>
                   <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Python Services</span>
-                    <span className="text-yellow-400 font-semibold">FastAPI</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Primary Database</span>
-                    <span className="text-blue-400 font-semibold">PostgreSQL 16+</span>
+                    <span className="text-gray-300">ORM</span>
+                    <span className="text-blue-400 font-semibold">Prisma</span>
                   </div>
                   <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
                     <span className="text-gray-300">AI Model</span>
-                    <span className="text-purple-400 font-semibold">Gemini 2.5 Flash</span>
+                    <span className="text-purple-400 font-semibold">Gemini 2.5 flash</span>
                   </div>
                   <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
                     <span className="text-gray-300">GitHub Integration</span>
-                    <span className="text-gray-300 font-semibold">GitHub API</span>
+                    <span className="text-gray-300 font-semibold">GitHub API </span>
                   </div>
                 </div>
               </div>
@@ -377,10 +373,6 @@ const AboutPage = () => {
                   <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
                     <span className="text-gray-300">Containerization</span>
                     <span className="text-blue-400 font-semibold">Docker</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
-                    <span className="text-gray-300">Orchestration</span>
-                    <span className="text-blue-400 font-semibold">Kubernetes</span>
                   </div>
                   <div className="flex items-center justify-between p-3 bg-black/20 rounded-xl">
                     <span className="text-gray-300">CI/CD</span>

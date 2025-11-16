@@ -1,9 +1,5 @@
 version: "3.8"
 
-# Production docker-compose file with local builds
-# For local development, use: docker-compose -f docker-compose.dev.yml up
-# For production deployment, use: ./scripts/start.sh
-
 services:
   # PostgreSQL Database
   postgres:
@@ -15,17 +11,13 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-cybersec}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cybersec123}
-      POSTGRES_DB: ${POSTGRES_DB:-cybersec}
+      POSTGRES_DB: ${POSTGRES_DB:-cybersec_auth}
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "pg_isready -U ${POSTGRES_USER:-cybersec} -d ${POSTGRES_DB:-cybersec}",
-        ]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-cybersec}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -73,11 +65,9 @@ services:
     networks:
       - cybersec-network
 
-  # Auth Service (built locally)
+  # Auth Service (pre-built image from GitHub Container Registry)
   auth-service:
-    build:
-      context: .
-      dockerfile: services/auth-service/Dockerfile
+    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-mannuvilasara}/cybersec-auth-service:${IMAGE_TAG:-latest}
     container_name: cybersec-auth-service
     restart: unless-stopped
     env_file:
@@ -85,8 +75,6 @@ services:
     environment:
       NODE_ENV: production
       PORT: 3001
-    ports:
-      - "3001:3001"
     depends_on:
       postgres:
         condition: service_healthy
@@ -109,20 +97,16 @@ services:
     networks:
       - cybersec-network
 
-  # AI Service (built locally)
+  # AI Service (pre-built image from GitHub Container Registry)
   ai-service:
-    build:
-      context: .
-      dockerfile: services/ai-service/Dockerfile
+    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-mannuvilasara}/cybersec-ai-service:${IMAGE_TAG:-latest}
     container_name: cybersec-ai-service
     restart: unless-stopped
     env_file:
       - .env
     environment:
       NODE_ENV: production
-      PORT: 3004
-    ports:
-      - "3004:3004"
+      PORT: 3002
     healthcheck:
       test:
         [
@@ -131,7 +115,7 @@ services:
           "--no-verbose",
           "--tries=1",
           "--spider",
-          "http://localhost:3004/health",
+          "http://localhost:3002/health",
         ]
       interval: 30s
       timeout: 10s
@@ -140,11 +124,9 @@ services:
     networks:
       - cybersec-network
 
-  # Securebot Service (built locally)
+  # Securebot Service (pre-built image from GitHub Container Registry)
   securebot:
-    build:
-      context: .
-      dockerfile: services/securebot/Dockerfile
+    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-mannuvilasara}/cybersec-securebot:${IMAGE_TAG:-latest}
     container_name: cybersec-securebot
     restart: unless-stopped
     env_file:
@@ -152,8 +134,6 @@ services:
     environment:
       NODE_ENV: production
       PORT: 4000
-    ports:
-      - "4000:4000"
     healthcheck:
       test:
         [
@@ -162,7 +142,7 @@ services:
           "--no-verbose",
           "--tries=1",
           "--spider",
-          "http://localhost:4000/health",
+          "http://localhost:3003/health",
         ]
       interval: 30s
       timeout: 10s
@@ -171,11 +151,9 @@ services:
     networks:
       - cybersec-network
 
-  # Next.js Web Application (built locally)
+  # Next.js Web Application (pre-built image from GitHub Container Registry)
   web:
-    build:
-      context: .
-      dockerfile: apps/web/Dockerfile
+    image: ghcr.io/${GITHUB_REPOSITORY_OWNER:-mannuvilasara}/cybersec-web:${IMAGE_TAG:-latest}
     container_name: cybersec-web
     restart: unless-stopped
     env_file:
@@ -186,8 +164,6 @@ services:
       - auth-service
       - ai-service
       - securebot
-    ports:
-      - "3000:3000"
     healthcheck:
       test:
         [
@@ -209,7 +185,7 @@ services:
   nginx:
     image: nginx:alpine
     container_name: cybersec-nginx
-    restart: always
+    restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
@@ -217,6 +193,11 @@ services:
       - ./infrastructure/docker/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./infrastructure/docker/certbot/conf:/etc/letsencrypt:ro
       - ./infrastructure/docker/certbot/www:/var/www/certbot:ro
+    depends_on:
+      - web
+      - auth-service
+      - ai-service
+      - securebot
     healthcheck:
       test:
         [
